@@ -2,29 +2,29 @@ pipeline {
     agent any
 
     stages {
-        stage ('Compile Stage') {
-
+        stage('Compile Stage') {
             steps {
-                withMaven(maven : 'maven_3_9_6') {
-                    sh 'mvn clean compile'
+                // Using the specified Maven installation
+                withMaven(maven: 'maven_3_9_6') {
+                    sh '/Users/gowe/Downloads/apache-maven-3.9.6/bin/mvn clean compile'
                 }
             }
         }
 
-        stage ('Testing Stage') {
-
+        stage('Testing Stage') {
             steps {
-                withMaven(maven : 'maven_3_9_6') {
-                    sh 'mvn test'
+                // Using the specified Maven installation
+                withMaven(maven: 'maven_3_9_6') {
+                    sh '/Users/gowe/Downloads/apache-maven-3.9.6/bin/mvn test'
                 }
             }
         }
 
-
-        stage ('Deployment Stage') {
+        stage('Deployment Stage') {
             steps {
-                withMaven(maven : 'maven_3_9_6') {
-                    sh 'mvn deploy'
+                // Using the specified Maven installation
+                withMaven(maven: 'maven_3_9_6') {
+                    sh '/Users/gowe/Downloads/apache-maven-3.9.6/bin/mvn deploy'
                 }
             }
         }
